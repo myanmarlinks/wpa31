@@ -9,4 +9,8 @@ function _BlogController($category = null) {
 function _HomeController() {
     make_view("home");
 }
+
+function _PageController() {
+    make_view("pageone");
+}
 ?>

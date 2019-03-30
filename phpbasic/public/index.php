@@ -6,7 +6,6 @@ include DD . "/app/controller/controllers.php";
 
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $script_name = explode("/", $_SERVER['SCRIPT_NAME']);
-
 $request = array_diff($request_uri, $script_name);
 $final_request = array_values($request);
 if(empty($final_request)) {
@@ -21,20 +20,4 @@ if(function_exists($controller)) {
 } else {
     echo "404 Not Found!";
 }
-   
-
- 
-// if(isset($_GET['page'])) {
-//     $page = $_GET['page'];
-//     $file = "../app/view/" . $page . ".php";
-//     var_dump($file);
-//     if(file_exists($file)) {
-//         include $file;
-//     } else {
-//         echo "404 Not Found!";
-//     }
-    
-// } else {
-//     include "../app/view/home.php";
-// }
- ?>
+?>
