@@ -26,8 +26,6 @@ function _lang($lang) {
     } else {
         trigger_error("Language file not found", E_USER_ERROR);
     }
-
-    
 }
 
 function _config($config) {
