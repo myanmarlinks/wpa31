@@ -13,7 +13,7 @@
             <?php foreach($blogs as $blog) { ?> 
                 <div class="col-12">
                 <h3><?php echo $blog["id"]; ?></h3>
-                <h1><?php echo $blog["title"]; ?></h1>
+                <h1><a href="<?php echo _config('app.app_link') . '/blog/' . $blog['id'] ?>"><?php echo $blog["title"]; ?></a></h1>
                 <p><?php echo $blog['body']; ?></p>
                 </div>        
             <?php } ?>
