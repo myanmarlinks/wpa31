@@ -16,7 +16,8 @@ if(empty($final_request)) {
 $controller = "_" . ucfirst($page) . "Controller";
 
 if(function_exists($controller)) {
-    call_user_func($controller, $final_request[1]);
+    array_shift($final_request);
+    call_user_func_array($controller, $final_request);
 } else {
     echo "404 Not Found!";
 }

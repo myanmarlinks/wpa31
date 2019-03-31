@@ -4,7 +4,7 @@
 * function must have app/view/ folder
 */
 function make_view($view) {
-    $file = DD . '/app/view/' . $viewd . ".php";
+    $file = DD . '/app/view/' . $view . ".php";
     if(file_exists($file)) {
         include $file;
     } else {
@@ -25,6 +25,13 @@ function _lang($lang) {
         }
     } else {
         trigger_error("Language file not found", E_USER_ERROR);
+    }
+}
+
+function dump($value, $die = false) {
+    var_dump($value);
+    if($die == true) {
+        die();
     }
 }
 
