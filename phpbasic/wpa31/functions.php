@@ -3,10 +3,15 @@
 /*
 * function must have app/view/ folder
 */
-function make_view($view) {
+function make_view($view, $data = null) {
     $file = DD . '/app/view/' . $view . ".php";
     if(file_exists($file)) {
-        include $file;
+        ob_start();
+        if($data != null) {
+            extract($data);
+        }
+        require $file;
+        ob_end_flush();
     } else {
         trigger_error(_lang("system.view_file_not_found"), E_USER_WARNING);
     }

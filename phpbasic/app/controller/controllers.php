@@ -19,4 +19,11 @@ function _HomeController() {
 function _PageController() {
     make_view("pageone");
 }
+
+function _HelloController($name) {
+    $data = [
+        "name"  => $name,
+    ];
+    make_view("hello", $data);
+}
 ?>
