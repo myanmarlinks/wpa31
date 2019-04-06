@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="app" class="row">
+            <div class="col-12">
+                <h1>{{ message }}</h1>
+                <input type="text" v-model="message">
+            </div>
+        </div>
+        <div id="app2" class="row">
+            <div class="col-12">
+                <span v-bind:title="message">
+                    Hover your mouse over me for a few seconds
+                    to see my dynamically bound title!
+                </span>
+            </div>
+        </div>
+        <div id="app3" class="row">
+            <div class="col-12">
+                <span v-if="seen">Now you see me</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'  
+            }
+        })
+        var app2= new Vue({
+            el: "#app2",
+            data: {
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })
+        var app3 = new Vue({
+            el: "#app3",
+            data: {
+                seen: false
+            }
+        })
+    </script>
+</body>
+</html>
