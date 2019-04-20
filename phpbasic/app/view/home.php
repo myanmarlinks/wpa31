@@ -14,7 +14,7 @@
 <div class="row">
     <div v-for="blog in blogs" class="col-12">
         <h3>{{ blog.id }}</h3>
-        <h1><a href="<?php echo _config('app.app_link') . '/blog/'?>{{ blog.id }}">{{ blog.title }}</a></h1>
+        <h1><a href="<?php echo _config('app.app_link') ?>/blog/">{{ blog.title }}</a></h1>
         <p>{{ blog.body }}</p>
     </div>        
 </div>
@@ -29,10 +29,10 @@
             getBlogs: function() {
                 var that = this
                 axios.get('/api')
-                .then(function (response) {
-                    that.blogs = response.data
-                    console.log(response.data);
-                })
+                    .then(function (response) {
+                        that.blogs = response.data
+                        console.log(response.data);
+                    })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
