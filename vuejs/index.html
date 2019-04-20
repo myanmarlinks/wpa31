@@ -29,6 +29,11 @@
                 <span v-if="seen">Now you see me</span>
             </div>
         </div>
+        <div id="app5" class="row">
+            <div class="col-12">
+                <button class="btn btn-danger" v-on:click="helloWorld('Myanmar')">Click Me</button>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -50,6 +55,14 @@
                 seen: false
             }
         })
+        var app5 = new Vue({
+            el: "#app5",
+            methods: {
+                helloWorld: function(value) {
+                    console.log("Hello " + value)
+                }
+            }
+        }) 
     </script>
 </body>
 </html>

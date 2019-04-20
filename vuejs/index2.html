@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="app" class="row">
+            <div class="col-12">
+                <todo-item
+                    v-for="todo in todos"
+                    v-bind:item="todo"
+                    v-bind:key="todo.id">
+                </todo-item>
+                <another v-bind:test="name"></another>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        Vue.component('todo-item', {
+            props: ['item'],
+            template: '<li>{{ item.text }}</li>'
+        })
+        Vue.component("another", {
+            props: ['test'],
+            template: "<h1>{{ test }}</h1>"
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                name: "Hla Hla",
+                todos: [
+                    { id: 0, text: 'Vegetables' },
+                    { id: 1, text: 'Cheese' },
+                    { id: 2, text: 'Whatever else humans are supposed to eat' }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

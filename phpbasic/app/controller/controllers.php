@@ -14,11 +14,13 @@ function _BlogController($id) {
     make_view("blog", $data);
 } 
 
+function _ApiController() {
+    echo json_encode(_config("app.blogs"));
+}
+
 function _HomeController() {
-    $data = [
-        "blogs" => _config("app.blogs")
-    ];
-    make_view("home", $data);
+   
+    make_view("home");
 }
 
 function _PageController() {
