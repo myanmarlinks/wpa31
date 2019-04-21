@@ -1,8 +1,8 @@
 <?php
 
 define("DD", realpath("../"));
-include DD . "/wpa31/functions.php";
-include DD . "/app/controller/controllers.php";
+require DD . "/wpa31/functions.php";
+require DD . "/app/controller/controllers.php";
 
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $script_name = explode("/", $_SERVER['SCRIPT_NAME']);

@@ -14,7 +14,11 @@
 <div class="row">
     <div v-for="blog in blogs" class="col-12">
         <h3>{{ blog.id }}</h3>
-        <h1><a href="<?php echo _config('app.app_link') ?>/blog/">{{ blog.title }}</a></h1>
+        <h1>
+            <a href="<?php echo _config('app.app_link') ?>/blog/">
+                {{ blog.title }}
+            </a>
+        </h1>
         <p>{{ blog.body }}</p>
     </div>        
 </div>
