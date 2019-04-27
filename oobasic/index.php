@@ -1,54 +1,45 @@
 <?php
-class Dog {
-    private $name;
-    private $leg;
-    private $data = [];
-    public function __construct($name, $leg = 4) {
-        $this->name = $name;
-        $this->leg = $leg;
-        echo "Dog Contruct! <br>";
-    }
-    public function __set($key ,$value) {
-        $this->data[$key] = $value;
-    }
-    public function __get($key) {
-        if(array_key_exists($key, $this->data)){
-            return $this->data[$key];
-        } else {
-            trigger_error("Array Key does not exist", E_USER_ERROR);
-        }
-    }
-    public function __call($method, $arguments) {
-        var_dump($method);
-        var_dump($arguments);
-    }
-
-    public static function __callStatic($method, $arguments) {
-        var_dump($method);
-        var_dump($arguments);
-    }
-
-    public static function notice() {
-        echo "Beware Dog! <br>";
-    }
-    function bark() {
-        echo "Woof! <br>";
-    }
-    public function __destruct() {
-        echo "Dog Destruct! <br>";
-    }
+interface AnimalInterface {
+    public function eat();
 }
 
-Dog::notice();
-Dog::warning();
+trait Bull {
+    public $type; 
+    public function bite() {
+        echo "Bite!<br>";
+    }
+}
+trait Tarrier  {
+    public function play() { echo "Play! <br>"; }
+}
+interface DogInterface {
+    public function bark();
+}
+abstract class Animal implements AnimalInterface {
+    public $name; public function eat() {
+        echo "EAT! <br>";
+    }
 
-// $dog = new Dog("Aung Net");
-// $dog->color = "Blue";
-// echo $dog->color . "<br>";
-// $dog->bark();
-// $dog->dance("Hip Hop", 5);
-// unset($dog);
-
-// $dog2 = new Dog("Puppy", 3);
-// $dog2->bark();
+    public function __construct($name) {
+        $this->name = $name;
+        echo "Animal Contruct! <br>";
+    }
+}
+// Inheritance
+class Dog extends Animal implements DogInterface {
+    use Bull, Tarrier;
+    public $foo;
+    public function __construct($name, $foo)  {
+        parent::__construct($name);
+        $this->foo = $foo;
+    }
+    public function bark() {
+        echo "Bark! <br>";
+    }
+}
+$dog = new Dog("Aung Net", "bar");
+$dog->type  = "Test";
+$dog->bite();
+$dog->eat();
+$dog->play();
 ?>
