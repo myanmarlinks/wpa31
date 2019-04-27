@@ -10,7 +10,7 @@ class CEO implements CeoInterface {
 interface GmInterface {
     public function giveMoney();
 }
-class GM {
+class GM implements GmInterface {
     public function giveMoney() {
         echo "Give Money! <br>";
     }
@@ -36,4 +36,3 @@ $manager->resign();
 $manager->giveMoney();
 
 ?>
-
