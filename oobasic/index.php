@@ -36,7 +36,7 @@ class Calculate {
         echo "Destruct! <br>";
     }
 }
-DB::table("customers")->where("id", 1)->get();
+
 
 $foo = Calculate::instance()->sum(100)->sum(100)->divide(5)->result();
 echo $foo . "<br>";
