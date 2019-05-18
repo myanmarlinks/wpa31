@@ -28,22 +28,10 @@ class DB extends PDO {
 	}
 	public function get() {
 		$sql = "SELECT * FROM " . $this->_table_name;
-		echo $sql;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		$stmt = $this->prepare($sql);
+		$stmt->execute();
+		$results = $stmt->fetchAll(PDO::FETCH_OBJ);
+		return $results;
 	}
 }
-
 ?>

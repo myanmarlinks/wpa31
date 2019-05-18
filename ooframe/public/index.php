@@ -6,3 +6,6 @@ require DD . "/wpa31/provider/config.php";
 require DD . '/wpa31/provider/database.php';
 
 $students = DB::table("students")->get();
+foreach($students as $student) {
+    var_dump($student->name);
+}
