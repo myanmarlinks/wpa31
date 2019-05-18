@@ -12,15 +12,15 @@ class DB extends PDO {
 		return self::$_instance;
 	}
 	public function __construct() {
-		$engine = "mysql"; 
-		$host = "localhost"; 
-		$port = "3306";
-		$database = "wpa31"; 
-		$user = "root"; 
-		$pass = ""; 
-		$dns =  $engine . ":host=" . $host . ";port=" 
+		$engine = Config::get("database.engine"); 
+		$host = Config::get("database.host"); 
+		$port = Config::get("database.port");
+		$database = Config::get("database.dbname"); 
+		$user = Config::get("database.username"); 
+		$pass = Config::get("database.password"); 
+		$dsn =  $engine . ":host=" . $host . ";port=" 
 			. $port . ";dbname=" . $database;
-		parent::__construct($dns, $user, $pass);
+		parent::__construct($dsn, $user, $pass);
 		echo "DB Construct! <br>";
 	}
 	public function __destruct() {
