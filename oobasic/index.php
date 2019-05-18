@@ -6,7 +6,6 @@ $dog = Registry::get("dog");
 $dog->bark();
 $cat = Registry::get("mycat");
 $cat->meow();
-
 class Duck {
     public function __construct() {
         echo "Duck! <br>";
